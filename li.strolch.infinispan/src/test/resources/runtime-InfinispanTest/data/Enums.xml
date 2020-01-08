@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StrolchModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://strolch.li/xsd/StrolchModel-1.6.xsd"
+              xsi:schemaLocation="https://strolch.li/xsd/StrolchModel-1.6.xsd StrolchModel-1.6.xsd">
+
+    <Resource Id="salutations" Name="Salutations" Type="Enumeration">
+        <ParameterBag Id="en" Name="Salutations" Type="Enumeration">
+            <Parameter Id="mr" Name="Mr" Type="String" Value="Mr"/>
+            <Parameter Id="mrs" Name="Mrs" Type="String" Value="Mrs"/>
+            <Parameter Id="ms" Name="Ms" Type="String" Value="Ms"/>
+        </ParameterBag>
+    </Resource>
+
+    <Resource Id="sex" Name="Sex" Type="Enumeration">
+        <ParameterBag Id="en" Name="Sex" Type="Enumeration">
+            <Parameter Id="male" Name="Male" Type="String" Value="male"/>
+            <Parameter Id="female" Name="Female" Type="String" Value="female"/>
+            <Parameter Id="both" Name="Both" Type="String" Value="both"/>
+        </ParameterBag>
+    </Resource>
+
+    <Resource Id="religions" Name="Religions" Type="Enumeration">
+        <ParameterBag Id="en" Name="Religions" Type="Enumeration">
+            <Parameter Id="Roman Catholic" Name="Roman Catholic" Type="String" Value="Roman Catholic"/>
+            <Parameter Id="Protestant" Name="Protestant" Type="String" Value="Protestant"/>
+            <Parameter Id="Orthodox" Name="Orthodox" Type="String" Value="Orthodox"/>
+            <Parameter Id="Christian" Name="Christian" Type="String" Value="Christian"/>
+            <Parameter Id="Muslim" Name="Muslim" Type="String" Value="Muslim"/>
+            <Parameter Id="Hindu" Name="Hindu" Type="String" Value="Hindu"/>
+            <Parameter Id="Buddhist" Name="Buddhist" Type="String" Value="Buddhist"/>
+            <Parameter Id="Jewish" Name="Jewish" Type="String" Value="Jewish"/>
+            <Parameter Id="Atheist" Name="Atheist" Type="String" Value="Atheist"/>
+        </ParameterBag>
+    </Resource>
+
+</StrolchModel>

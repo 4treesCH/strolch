@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<StrolchModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://strolch.li/xsd/StrolchModel-1.6.xsd"
+              xsi:schemaLocation="https://strolch.li/xsd/StrolchModel-1.6.xsd StrolchModel-1.6.xsd">
+    <Resource Id="otherResource" Name="Yellow" Type="OtherResource">
+        <ParameterBag Id="parameters" Name="parameters" Type="Parameters">
+            <Parameter Id="color" Name="Color" Type="String" Value="yellow"/>
+        </ParameterBag>
+    </Resource>
+    <Resource Id="MyTestResource" Name="Test Name" Type="TestType">
+        <ParameterBag Id="@bag01" Name="Test Bag" Type="TestBag">
+            <Parameter Id="@param7" Name="StringList Param" Type="StringList" Value="Hello;World"/>
+            <Parameter Id="@param6" Name="Date Param" Type="Date" Value="2012-11-30T18:12:05.628+01:00"/>
+            <Parameter Id="@param5" Name="String Param" Type="String" Value="Strolch"/>
+            <Parameter Id="@param4" Name="Long Param" Type="Long" Value="4453234566"/>
+            <Parameter Id="@param3" Name="Integer Param" Type="Integer" Value="77"/>
+            <Parameter Id="@param2" Name="Float Param" Type="Float" Value="44.3"/>
+            <Parameter Id="@param1" Name="Boolean Param" Type="Boolean" Value="true"/>
+        </ParameterBag>
+        <ParameterBag Id="relations" Name="Parameters" Type="Parameters">
+            <Parameter Id="other" Name="Other Resource" Interpretation="Resource-Ref" Uom="OtherResource" Type="String" Value="otherResource"/>
+        </ParameterBag>
+        <TimedState Id="@booleanState" Name="Boolean State" Type="Boolean">
+            <Value Time="1970-01-01T00:00:00.000+01:00" Value="false"/>
+            <Value Time="1970-01-01T00:01:00.000+01:00" Value="true"/>
+            <Value Time="1970-01-01T00:02:00.000+01:00" Value="false"/>
+        </TimedState>
+        <TimedState Id="@integerState" Name="Integer State" Type="Integer">
+            <Value Time="1970-01-01T00:00:00.000+01:00" Value="1"/>
+            <Value Time="1970-01-01T00:01:00.000+01:00" Value="2"/>
+            <Value Time="1970-01-01T00:02:00.000+01:00" Value="3"/>
+            <Value Time="1970-01-01T00:03:00.000+01:00" Value="2"/>
+            <Value Time="1970-01-01T00:04:00.000+01:00" Value="1"/>
+            <Value Time="1970-01-01T00:05:00.000+01:00" Value="0"/>
+        </TimedState>
+        <TimedState Id="@floatState" Name="Float State" Type="Float">
+            <Value Time="1970-01-01T00:00:00.000+01:00" Value="1.1"/>
+            <Value Time="1970-01-01T00:01:00.000+01:00" Value="2.2"/>
+            <Value Time="1970-01-01T00:02:00.000+01:00" Value="3.3"/>
+            <Value Time="1970-01-01T00:03:00.000+01:00" Value="2.2"/>
+            <Value Time="1970-01-01T00:04:00.000+01:00" Value="1.1"/>
+            <Value Time="1970-01-01T00:05:00.000+01:00" Value="0.0"/>
+        </TimedState>
+        <TimedState Id="@stringSetState" Name="StringSet State" Type="StringSet">
+            <Value Time="1970-01-01T00:00:00.000+01:00" Value="foo"/>
+            <Value Time="1970-01-01T00:01:00.000+01:00" Value="foo, bar"/>
+            <Value Time="1970-01-01T00:02:00.000+01:00" Value="bar"/>
+        </TimedState>
+        <Policies>
+            <Policy Type="PlanningPolicy" Value="key:SimplePlanning"/>
+            <Policy Type="ExecutionPolicy" Value="key:NoExecutionPolicy"/>
+            <Policy Type="ConfirmationPolicy" Value="key:NoConfirmation"/>
+        </Policies>
+    </Resource>
+</StrolchModel>

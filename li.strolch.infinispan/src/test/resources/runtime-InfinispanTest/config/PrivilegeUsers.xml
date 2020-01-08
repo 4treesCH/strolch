@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Users>
+	<User userId="1" username="agent">
+		<State>SYSTEM</State>
+		<Roles>
+			<Role>agent</Role>
+		</Roles>
+	</User>
+	<!-- Password: admin -->
+	<User userId="3" username="test" password="fdd9d2def3475e1d5cc87107b87e14fd6adbca664c2874fc379a1e53931c0428" salt="74657374">
+		<Firstname>Application</Firstname>
+		<Lastname>Administrator</Lastname>
+		<State>ENABLED</State>
+		<Locale>en-GB</Locale>
+		<Roles>
+			<Role>AppUser</Role>
+		</Roles>
+		<Properties>
+			<Property name="realm" value="defaultRealm" />
+		</Properties>
+	</User>
+</Users>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan xmlns='urn:infinispan:config:10.1' xsi:schemaLocation='urn:infinispan:config:10.1 http://www.infinispan.org/schemas/infinispan-config-10.1.xsd                             urn:infinispan:server:10.0 http://www.infinispan.org/schemas/infinispan-server-10.0.xsd' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+    <jgroups>
+        <stack-file name='image-tcp' path='infinispan-jgroups-tcp.xml'/>
+    </jgroups>
+    <cache-container name='default'>
+        <transport cluster='infinispan' stack='image-tcp'/>
+        <serialization version="71" marshaller="org.infinispan.commons.marshall.JavaSerializationMarshaller">
+            <white-list>
+                <class>li.strolch.infinispan.ElementKey</class>
+                <regex>li.strolch.model.*</regex>
+                <regex>li.strolch.parameter.*</regex>
+                <regex>li.strolch.activity.*</regex>
+                <regex>li.strolch.timedstate.*</regex>
+                <regex>li.strolch.timevalue.*</regex>
+                <regex>li.strolch.timevalue.impl.*</regex>
+                <regex>li.strolch.policy.*</regex>
+                <regex>li.strolch.audit.*</regex>
+            </white-list>
+        </serialization>
+        <global-state>
+            <persistent-location path="/home/eitch/src/git/strolch/li.strolch.model/target/" />
+        </global-state>
+    </cache-container>
+<!--    <server xmlns='urn:infinispan:server:10.0'>-->
+<!--        <interfaces>-->
+<!--            <interface name='public'>-->
+<!--                <inet-address value='127.0.1.1'/>-->
+<!--            </interface>-->
+<!--        </interfaces>-->
+<!--        <socket-bindings default-interface='public' port-offset='0'>-->
+<!--            <socket-binding name='default' port='11222'/>-->
+<!--        </socket-bindings>-->
+<!--        <security>-->
+<!--            <security-realms>-->
+<!--                <security-realm name='default'>-->
+<!--                    <properties-realm groups-attribute='Roles'>-->
+<!--                        <user-properties path='users.properties' relative-to='infinispan.server.config.path'/>-->
+<!--                        <group-properties path='groups.properties' relative-to='infinispan.server.config.path'/>-->
+<!--                    </properties-realm>-->
+<!--                </security-realm>-->
+<!--            </security-realms>-->
+<!--        </security>-->
+<!--        <endpoints socket-binding='default' security-realm='default'>-->
+<!--            <hotrod-connector name='hotrod'>-->
+<!--                <authentication security-realm='default'>-->
+<!--                    <sasl mechanisms='SCRAM-SHA-512 SCRAM-SHA-384 SCRAM-SHA-256 SCRAM-SHA-1 DIGEST-SHA-512 DIGEST-SHA-384 DIGEST-SHA-256 DIGEST-SHA DIGEST-MD5 CRAM-MD5 PLAIN' qop='auth' server-name='infinispan'>-->
+<!--                        <property name='com.sun.security.sasl.digest.realm'>-->
+<!--                            default-->
+<!--                        </property>-->
+<!--                    </sasl>-->
+<!--                </authentication>-->
+<!--            </hotrod-connector>-->
+<!--            <rest-connector name='rest'>-->
+<!--                <authentication mechanisms='DIGEST' security-realm='default'/>-->
+<!--                <cors-rules>-->
+<!--                </cors-rules>-->
+<!--            </rest-connector>-->
+<!--        </endpoints>-->
+<!--    </server>-->
+</infinispan>

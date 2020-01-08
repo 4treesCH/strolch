@@ -93,6 +93,7 @@
         <jaxb.api.version>2.4.0-b180830.0359</jaxb.api.version>
         <csv.version>1.7</csv.version>
         <sax.version>2.0.1</sax.version>
+        <infinispan.version>10.1.0.Final</infinispan.version>
 
         <!-- test time dependencies -->
         <junit.version>4.12</junit.version>
@@ -150,6 +151,7 @@
         <module>li.strolch.bom</module>
         <module>li.strolch.mvn.archetype.main</module>
         <module>li.strolch.mvn.archetype.webapp</module>
+        <module>li.strolch.infinispan</module>
 
     </modules>
 
@@ -244,6 +246,16 @@
             </dependency>
 
             <!-- Database -->
+            <dependency>
+                <groupId>org.infinispan</groupId>
+                <artifactId>infinispan-client-hotrod</artifactId>
+                <version>${infinispan.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.infinispan</groupId>
+                <artifactId>infinispan-core</artifactId>
+                <version>${infinispan.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>

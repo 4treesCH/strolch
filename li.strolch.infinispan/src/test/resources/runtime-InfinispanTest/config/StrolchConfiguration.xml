@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StrolchConfiguration>
+    <env id="dev">
+        <Runtime>
+            <applicationName>Winston</applicationName>
+            <Properties>
+                <locale>en</locale>
+                <verbose>true</verbose>
+            </Properties>
+        </Runtime>
+        <Component>
+            <name>PrivilegeHandler</name>
+            <api>li.strolch.runtime.privilege.PrivilegeHandler</api>
+            <impl>li.strolch.runtime.privilege.DefaultStrolchPrivilegeHandler</impl>
+            <Properties>
+                <privilegeConfigFile>PrivilegeConfig.xml</privilegeConfigFile>
+            </Properties>
+        </Component>
+        <Component>
+            <name>RealmHandler</name>
+            <api>li.strolch.agent.api.RealmHandler</api>
+            <impl>li.strolch.infinispan.InfinispanRealmHandler</impl>
+            <depends>PrivilegeHandler</depends>
+            <Properties>
+                <infinispanConfigFile>infinispan-config.xml</infinispanConfigFile>
+                <allowDataInitOnEmptyCluster>true</allowDataInitOnEmptyCluster>
+                <dataStoreMode>Infinispan</dataStoreMode>
+                <dataStoreFile>Model.xml</dataStoreFile>
+                <enableObserverUpdates>true</enableObserverUpdates>
+            </Properties>
+        </Component>
+        <Component>
+            <name>ServiceHandler</name>
+            <api>li.strolch.service.api.ServiceHandler</api>
+            <impl>li.strolch.service.api.DefaultServiceHandler</impl>
+            <depends>RealmHandler</depends>
+            <depends>PrivilegeHandler</depends>
+            <Properties>
+                <verbose>true</verbose>
+            </Properties>
+        </Component>
+        <Component>
+            <name>PostInitializer</name>
+            <api>li.strolch.agent.api.PostInitializer</api>
+            <impl>li.strolch.agent.impl.SimplePostInitializer</impl>
+            <depends>ServiceHandler</depends>
+            <Properties>
+            </Properties>
+        </Component>
+    </env>
+</StrolchConfiguration>
